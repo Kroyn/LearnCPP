@@ -1,11 +1,30 @@
 #include <iostream>
-#include "temp/cpp20.h"
+#include <vector>
+#include "utils/Random.h"
+
+void vectorIntilization(std::vector<int>& vec)
+{
+    for (size_t i = 0; i < std::size(vec); ++i)
+    {
+        vec[i] = Random::get(0, 99);
+    }
+}
+
+void vectorShow(const std::vector<int>& vec)
+{
+    for (size_t i = 0; i < std::size(vec); i++)
+    {
+        std::cout << vec[i] << ' ';
+    }
+    std::cout << '\n';
+}
 
 int main()
 {
-    constexpr int num { 25 };
+    std::vector<int> vector1(10);
 
-    std::cout << CPP20TEST::multiply(num) << '\n';
+    vectorIntilization(vector1);
+    vectorShow(vector1);
 
     return 0;
 }
