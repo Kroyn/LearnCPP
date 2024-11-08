@@ -1,8 +1,11 @@
 #include <iostream>
+#include "temp/cpp20.h"
 
 int main()
 {
-    std::cout << "Hello world!\n";
+    constexpr int num { 25 };
+
+    std::cout << CPP20TEST::multiply(num) << '\n';
 
     return 0;
 }
