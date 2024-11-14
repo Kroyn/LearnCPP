@@ -1,18 +1,21 @@
 #include <iostream>
-#include <vector>
 #include "utils/Random.h"
+#include "algorithms/SelectionSort.h"
 
-void vectorIntilization(std::vector<int>& vec)
+void initilizationVector(std::vector<int>& vec)
 {
     for (size_t i = 0; i < std::size(vec); ++i)
     {
         vec[i] = Random::get(0, 99);
     }
+    
 }
 
-void vectorShow(const std::vector<int>& vec)
+// Show vector
+template <typename T>
+void showVector(const std::vector<T> vec)
 {
-    for (size_t i = 0; i < std::size(vec); i++)
+    for (size_t i = 0; i < std::size(vec); ++i)
     {
         std::cout << vec[i] << ' ';
     }
@@ -22,9 +25,12 @@ void vectorShow(const std::vector<int>& vec)
 int main()
 {
     std::vector<int> vector1(10);
+    initilizationVector(vector1);
+    showVector(vector1);
+    
+    ALG::SelectionSort(vector1);
 
-    vectorIntilization(vector1);
-    vectorShow(vector1);
+    showVector(vector1);
 
-    return 0;
+    return 0; 
 }
