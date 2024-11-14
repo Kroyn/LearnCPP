@@ -1,6 +1,6 @@
 #include <iostream>
 #include "utils/Random.h"
-#include "algorithms/SelectionSort.h"
+#include "algorithms/BinarySearch.h"
 
 void initilizationVector(std::vector<int>& vec)
 {
@@ -28,9 +28,11 @@ int main()
     initilizationVector(vector1);
     showVector(vector1);
     
-    ALG::SelectionSort(vector1);
+    std::cout << "Enter a key: ";
+    int key{};
+    std::cin >> key;
 
-    showVector(vector1);
+    std::cout << "Index found: << " << ALG::BinarySearch(vector1, key) << '\n';
 
     return 0; 
 }
