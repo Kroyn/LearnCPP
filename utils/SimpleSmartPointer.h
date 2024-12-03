@@ -1,5 +1,6 @@
 #pragma once
 
+// Is not safery class, use it's only for learning
 template <typename T>
 class SimpleSmartPointer
 {
