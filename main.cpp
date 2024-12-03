@@ -1,38 +1,28 @@
 #include <iostream>
-#include "utils/Random.h"
-#include "algorithms/BinarySearch.h"
+#include "utils/SimpleSmartPointer.h"
 
-void initilizationVector(std::vector<int>& vec)
+class Simple
 {
-    for (size_t i = 0; i < std::size(vec); ++i)
-    {
-        vec[i] = Random::get(0, 99);
-    }
-    
-}
+private:
+    int m_variable{};
 
-// Show vector
-template <typename T>
-void showVector(const std::vector<T> vec)
-{
-    for (size_t i = 0; i < std::size(vec); ++i)
+public:
+    Simple() = default;
+
+    Simple(int var) : m_variable{ var }
     {
-        std::cout << vec[i] << ' ';
+        std::cout << "Constuction::Simple\n";
     }
-    std::cout << '\n';
-}
+    ~Simple()
+    {
+        std::cout << "Destructor::Simple\n";
+    }
+    int Get() const { return m_variable; }
+};
 
 int main()
 {
-    std::vector<int> vector1(10);
-    initilizationVector(vector1);
-    showVector(vector1);
-    
-    std::cout << "Enter a key: ";
-    int key{};
-    std::cin >> key;
+    SimpleSmartPointer smart{ new Simple{ 10 } };
 
-    std::cout << "Index found: << " << ALG::BinarySearch(vector1, key) << '\n';
-
-    return 0; 
+    std::cout << "Simple = " << smart->Get() << '\n';
 }
